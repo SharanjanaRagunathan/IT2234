@@ -1,0 +1,149 @@
+//inset one data
+
+db.students.insertOne(
+{
+  "regno": "2021ict50",
+  "name": "Zaara",
+  "age": 22,
+  "degree": "IT",
+  "gpa": 3.48,
+  "skills": [
+    "JS",
+    "MongoDB",
+    "Spring Boot"
+  ],
+  "gender": "female"
+  
+})
+
+// insert Many Datas
+db.students.insertMany(
+[
+{
+  "regno": "2021ict52",
+  "name": "Ayaan",
+  "age": 23,
+  "degree": "SE",
+  "gpa": 3.65,
+  "skills": [
+    "Java",
+    "Spring Boot",
+    "Docker"
+  ],
+  "gender": "male"
+},
+
+{
+  "regno": "2021ict53",
+  "name": "Meera",
+  "age": 22,
+  "degree": "CS",
+  "gpa": 3.72,
+  "skills": [
+    "Python",
+    "Django",
+    "AWS"
+  ],
+  "gender": "female"
+},
+
+{
+  "regno": "2021ict54",
+  "name": "Rayan",
+  "age": 24,
+  "degree": "DS",
+  "gpa": 3.58,
+  "skills": [
+    "R",
+    "Tableau",
+    "SQL"
+  ],
+  "gender": "male"
+},
+
+
+{
+  "regno": "2021ict55",
+  "name": "Shana",
+  "age": 22,
+  "degree": "IT",
+  "gpa": 2.58,
+  "skills": [
+    "MongoDB",
+    "JS",
+    "SQL"
+  ],
+  "gender": "male"
+},
+
+{
+  "regno": "2021ict56",
+  "name": "Anika",
+  "age": 23,
+  "degree": "AI",
+  "gpa": 3.81,
+  "skills": [
+    "TensorFlow",
+    "Pandas",
+    "Scikit-learn"
+  ],
+  "gender": "female"
+}
+]
+)
+
+//Projecting data using Compass
+{name:1,age:1,_id:0} 
+
+//Finding data Using Compass
+{regno:"2021ict51"}
+
+//Finding data Using MongoDB shell
+db.students.find({"gender":"female"})
+
+
+//Finding first data Using MongoDB shell
+db.students.findOne({"gender":"female"})
+
+
+
+//sorting data using compass
+//sort age in Ascending order
+{age: 1}
+
+//sort age in Descending order
+{age: -1}
+
+
+//Sorting data using MongoDB shell
+db.students.find({"degree":"IT"}).sort({"age":1})
+
+//Greater than -> $gt
+//finding age greater than22
+//compass
+{age:{$gt:22}}
+//MongoDB shell
+db.students.find({"age":{"$gt":22}})
+
+
+//Less than -> $lt
+//finding age less than23
+//compass
+{age:{$lt:23}}
+//MongoDB shell
+db.students.find({"age":{"$lt":23}})
+
+
+//Equal-> $eq
+//finding age equal 22
+//compass
+{age:{$eq:22}}
+//MongoDB shell
+db.students.find({"age":{"$eq":22}})
+
+//find which students Know MongoDB
+//Java and MongoDB
+{skills:{$in:['MongoDB','JS']}}
+
+//students dont know MongoDB
+{skills:{$nin:['MongoDB']}}
